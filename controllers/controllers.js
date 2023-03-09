@@ -89,7 +89,10 @@ export const verifyOTP = async function(req, res){
     return res.status(400).json({ message: "invalid otp"});
 }
 export const createResetSession = async function(req, res){
-    res.json('/createResetSession GET');
+    if(req.app.locals.resetSession){
+        return res.status(201).json({ message : req.app.locals.resetSession})
+   }
+   return res.status(440).json({message : "session expired"});
 }
 
 export const updateUser = async function(req,res){

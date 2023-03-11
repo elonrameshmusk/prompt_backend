@@ -6,7 +6,7 @@ import otpGenerator from 'otp-generator';
 
 export const verifyUser = async function (req, res, next){
     try {
-        const { email } = req.method == "GET" ? req.query : req.body;
+        const email = req.method == "GET" ? req.query.email : req.body.email;
         let exist = await User.findOne({ email: email });
         if(!exist) return res.status(404).json({ message : "user not found"});
         req.user = exist;
@@ -39,9 +39,6 @@ export const register = async function(req, res){
         return res.status(500).json({message:err});
     }
 }
-export const registerMail = async function(req, res){
-    res.json('/registerMail POST');
-}
 export const authenticate = async function(req, res){
     res.json('/authenticate POST');
 }
@@ -72,6 +69,9 @@ export const login = async function(req, res){
     }
 }
 
+export const test = async function(req, res){
+    res.status(200).json({message:"superpowers granted"});
+}
 export const getUsername = async function(req, res){
     
 }
@@ -99,5 +99,21 @@ export const updateUser = async function(req,res){
     res.json('/updateUser PUT');
 }
 export const resetPassword = async function(req, res){
-    res.json('/resetPassword PUT');
+    try{
+        if(!req.app.locals.resetSession) return res.status(440).json({message: "session expired"});
+        const email = req.user.email;
+        const password = req.body.password;
+        bcrypt.hash(password, 10).then((hashed_password)=>{
+            User.updateOne({email: email}, {password: hashed_password}).then((data)=>{
+                req.app.locals.resetSession = false;
+                return res.status(201).json({message: "password updated"});
+            }).catch((err)=>{
+                return res.status(500).json({message: "cannot update user password"});
+            });
+        }).catch((err)=>{
+            return res.status(500).json({message: "unable to hash the password"})
+        })
+    }catch(err){
+        return res.status(500).json({message:err}) 
+    }
 }

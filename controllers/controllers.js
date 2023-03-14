@@ -30,13 +30,13 @@ export const register = async function(req, res){
             }).then((user)=>{
                 return res.status(201).json({message: "user created", user: user});
             }).catch((err)=>{
-                return res.status(500).json({message: err});
+                return res.status(500).json({message: "1"});
             });
         }).catch((err)=>{
-            return res.status(500).json({message:err});
+            return res.status(500).json({message:"2"});
         });    
     }catch(err){
-        return res.status(500).json({message:err});
+        return res.status(500).json({message:"3"});
     }
 }
 export const authenticate = async function(req, res){

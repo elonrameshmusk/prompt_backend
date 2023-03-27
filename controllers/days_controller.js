@@ -29,9 +29,9 @@ export const getAllDays = async function(req, res) {
             return res.status(404).json({ message: "user not found" });
         }
 
-        return res.status(200).json({ message: user.days});
+        return res.status(200).json({ message: user[0].days});
     } catch(err) {
-        return res.status(500).json({ message: err.message });
+        return res.status(500).json({ message: "89" });
     }
 }
 

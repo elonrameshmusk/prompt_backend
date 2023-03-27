@@ -23,10 +23,10 @@ router.route('/resetPassword').put(controller.verifyUser, controller.resetPasswo
 //post routes
 
 //get routes
-// router.route('/getAllDays').get(days_controller.getAllDays);
+router.route('/getAllDays').get(days_controller.decodeToken, days_controller.getAllDays);
 //put routes
 router.route('/putDay').put(days_controller.decodeToken, days_controller.putDay);
-// router.route('/updateDay').put(days_controller.updateDay);
+// router.route('/updateDay').put(days_controller.decodeToken, days_controller.updateDay);
 //delete routes
-// router.route('/deleteDay').delete(days_controller.deleteDay);
+router.route('/deleteDay').delete(days_controller.decodeToken, days_controller.deleteDay);
 export default router;

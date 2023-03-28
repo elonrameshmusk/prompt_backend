@@ -8,11 +8,11 @@ export const verifyUser = async function (req, res, next){
     try {
         const email = req.method == "GET" ? req.query.email : req.body.email;
         let exist = await User.findOne({ email: email });
-        if(!exist) return res.status(404).json({ message : "user not found"});
+        if(!exist) return res.status(404).json({ message : "A user with the email id does not exist"});
         req.user = exist;
         next();
     } catch (err) {
-        return res.status(404).json({ message: "authentication error"});
+        return res.status(404).json({ message: "There was an error. Please try again later"});
     }
 }
 
@@ -46,12 +46,12 @@ export const login = async function(req, res){
     try{
         const {email, password} = req.body;
         if(!email || !password){
-            return res.status(500).json({message:"fields can't be empty"});
+            return res.status(500).json({message:"Please fill out the email and password fields"});
         }
         const user = req.user;
         bcrypt.compare(password, user.password, function(err, password_check){
             if(err){
-                return res.status(500).json({message:err});
+                return res.status(500).json({message:"Can't log in right now. Please try again later"});
             }
             if(password_check){
                 const token = jwt.sign({
@@ -65,7 +65,7 @@ export const login = async function(req, res){
             }
         });
     }catch(err){
-        return res.status(500).json({message:err});
+        return res.status(500).json({message:"Can't log in. Please check your internet connection once or try again later"});
     }
 }
 

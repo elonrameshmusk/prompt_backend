@@ -8,11 +8,11 @@ export const verifyUser = async function (req, res, next){
     try {
         const email = req.method == "GET" ? req.query.email : req.body.email;
         let exist = await User.findOne({ email: email });
-        if(!exist) return res.status(404).json({ message : "A user with the email id does not exist"});
+        if(!exist) return res.status(404).json({status: '404', message : "A user with the email id does not exist"});
         req.user = exist;
         next();
     } catch (err) {
-        return res.status(404).json({ message: "There was an error. Please try again later"});
+        return res.status(404).json({status: '404', message: "There was an error. Please try again later"});
     }
 }
 
@@ -46,26 +46,26 @@ export const login = async function(req, res){
     try{
         const {email, password} = req.body;
         if(!email || !password){
-            return res.status(500).json({message:"Please fill out the email and password fields"});
+            return res.status(500).json({status: '500', message:"Please fill out the email and password fields"});
         }
         const user = req.user;
         bcrypt.compare(password, user.password, function(err, password_check){
             if(err){
-                return res.status(500).json({message:"Can't log in right now. Please try again later"});
+                return res.status(500).json({status: '500', message:"Can't log in right now. Please try again later"});
             }
             if(password_check){
                 const token = jwt.sign({
                     userId: user._id,
                     email: user.email,
                 }, ENV.JWT_SECRET, {expiresIn: "10m"});
-                return res.status(200).json({message: token});
+                return res.status(200).json({status: '200', message: token});
             }
             else{
-                return res.status(400).json({message:"password does not match"})
+                return res.status(400).json({status: '400', message:"password does not match"})
             }
         });
     }catch(err){
-        return res.status(500).json({message:"Can't log in. Please check your internet connection once or try again later"});
+        return res.status(500).json({status: '500', message:"Can't log in. Please check your internet connection once or try again later"});
     }
 }
 

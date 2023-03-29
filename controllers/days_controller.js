@@ -6,14 +6,14 @@ export const decodeToken = async function(req, res, next){
         const token = req.headers.authorization.split(" ")[1];
         jwt.verify(token, ENV.JWT_SECRET, function(err, decoded_token){
             if(err){
-                return res.staus(500).json({message:err})
+                return res.staus(500).send(err)
             }else{
                 req.user = decoded_token.email;
                 next();
             }
         });
     }catch(err){
-        return res.status(500).json({message:err});
+        return res.status(500).send(err);
     }
 }
 
@@ -26,12 +26,13 @@ export const getAllDays = async function(req, res) {
         );
 
         if (!user) {
-            return res.status(404).json({ message: "user not found" });
+            return res.status(404).send("user not found" );
         }
-
-        return res.status(200).json({ message: user[0].days});
+        console.log(typeof(user[0].days))
+        console.log(user[0].days);
+        return res.status(200).send(user[0].days);
     } catch(err) {
-        return res.status(500).json({ message: "89" });
+        return res.status(500).send("89");
     }
 }
 

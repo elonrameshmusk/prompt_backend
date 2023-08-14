@@ -18,29 +18,32 @@ export const verifyUser = async function (req, res, next){
 
 export const register = async function(req, res){
     try{
-        const {email, password} = req.body;
-        const existingEmail = await User.findOne({email: email});
-        if(existingEmail){
-            return res.status(409).json({message: "email already exists"});
+        const { email, password } = req.body;
+
+        const existingEmail = await User.findOne({ email: email });
+        if (existingEmail) {
+        return res.status(409).json({ message: "Email already exists" });
         }
-        bcrypt.hash(password, 10).then((hashed_password)=>{
-            User.create({
-                email: email,
-                password: hashed_password
-            }).then((user)=>{
-                return res.status(201).json({message: "user created", user: user});
-            }).catch((err)=>{
-                return res.status(500).json({message: "1"});
-            });
-        }).catch((err)=>{
-            return res.status(500).json({message:"2"});
-        });    
-    }catch(err){
-        return res.status(500).json({message:"3"});
-    }
+
+        const hashed_password = await bcrypt.hash(password, 10);
+        const user = await User.create({ email: email, password: hashed_password });
+
+        return res.status(201).json({ message: "User created", user: user });
+    } catch (err) {
+        return res.status(500).json({ message: "Something went wrong" });
+    } 
 }
-export const authenticate = async function(req, res){
-    res.json('/authenticate POST');
+export const authorize = async function(req, res){//complete this function
+    try{
+        const token = req.headers.authorization.split(" ")[1];
+        const decoded = jwt.verify(token, ENV.JWT_SECRET);
+        req.user = decoded;
+        next();
+    }//
+    catch(err){
+        return res.status(401).send("You are not authorized to access this page");
+    }    
+
 }
 export const login = async function(req, res){
     try{
@@ -76,7 +79,7 @@ export const getUsername = async function(req, res){
     
 }
 export const generateOTP = async function(req, res){
-    req.app.locals.OTP = await otpGenerator.generate(6, { lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false})
+    req.app.locals.OTP = otpGenerator.generate(6, { lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false})
     res.status(201).json({ message: req.app.locals.OTP })
 }
 export const verifyOTP = async function(req, res){

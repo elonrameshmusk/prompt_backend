@@ -1,24 +1,24 @@
 import { Router } from "express";
-import * as controller from '../controllers/auth_controller.js';
+import * as auth_controller from '../controllers/auth_controller.js';
 import * as days_controller from '../controllers/days_controller.js';
-import registerMail from '../controllers/mailer.js'
+// import registerMail from '../controllers/mailer.js'
 const router = Router();
 import { localVariables } from "../middlewares/verify_token.js";
 //AUTH ROUTES
 //post routes
-router.route('/register').post(controller.register);
-router.route('/registerMail').post(registerMail);
-router.route('/authenticate').post(controller.authenticate);
-router.route('/login').post(controller.verifyUser, controller.login);
+router.route('/register').post(auth_controller.register);
+// router.route('/registerMail').post(registerMail);
+router.route('/authorize').post(auth_controller.authorize);
+router.route('/login').post(auth_controller.verifyUser, auth_controller.login);
 //get routes
-router.route('/test').get(controller.test);
-router.route('/user/:username').get(controller.getUsername);
-router.route('/generateOTP').get(controller.verifyUser, localVariables, controller.generateOTP);
-router.route('/verifyOTP').get(controller.verifyUser, controller.verifyOTP);
-router.route('/createResetSession').get(controller.createResetSession);
+router.route('/test').get(auth_controller.test);
+router.route('/user/:username').get(auth_controller.getUsername);
+router.route('/generateOTP').get(auth_controller.verifyUser, localVariables, auth_controller.generateOTP);
+router.route('/verifyOTP').get(auth_controller.verifyUser, auth_controller.verifyOTP);
+router.route('/createResetSession').get(auth_controller.createResetSession);
 //put routes
-router.route('/updateUser').put(controller.updateUser);
-router.route('/resetPassword').put(controller.verifyUser, controller.resetPassword);
+router.route('/updateUser').put(auth_controller.updateUser); 
+router.route('/resetPassword').put(auth_controller.verifyUser, auth_controller.resetPassword);
 //DAY ROUTES
 //post routes
 

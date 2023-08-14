@@ -13,8 +13,15 @@ app.disable('x-powered-by');
 
 const port = 8080;
 
-app.get('/', (req, res)=>{
-    res.status(200).json("Slash route works!");
+app.get('/x', (req, res)=>{
+    console.log("nothing.tech")
+    try{
+        var user = createuser();
+        res.send(user);
+    }catch(err){
+        console.log(err.message);
+        res.send(err);
+    }
 });
 app.use('/api', router);
 

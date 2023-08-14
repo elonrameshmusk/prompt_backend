@@ -33,13 +33,13 @@ export const register = async function(req, res){
         return res.status(500).json({ message: "Something went wrong" });
     } 
 }
-export const authorize = async function(req, res){//complete this function
+export const authorize = async function(req, res){
     try{
         const token = req.headers.authorization.split(" ")[1];
         const decoded = jwt.verify(token, ENV.JWT_SECRET);
         req.user = decoded;
         next();
-    }//
+    }
     catch(err){
         return res.status(401).send("You are not authorized to access this page");
     }    

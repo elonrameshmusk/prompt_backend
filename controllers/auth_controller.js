@@ -24,9 +24,1153 @@ export const register = async function(req, res){
         if (existingEmail) {
         return res.status(409).json({ message: "Email already exists" });
         }
-
         const hashed_password = await bcrypt.hash(password, 10);
-        const user = await User.create({ email: email, password: hashed_password });
+        const user = await User.create({ 
+            email: email,
+            password: hashed_password,
+            year: {
+                jan: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                feb: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                mar: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                apr: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                may: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                jun: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                jul: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                aug: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                sep: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                oct: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                nov: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+                dec: {
+                    d1: {
+                        day: []
+                    },
+                    d2: {
+                        day: []
+                    },
+                    d3: {
+                        day: []
+                    },
+                    d4: {
+                        day: []
+                    },
+                    d5: {
+                        day: []
+                    },
+                    d6: {
+                        day: []
+                    },
+                    d7: {
+                        day: []
+                    },
+                    d8: {
+                        day: []
+                    },
+                    d9: {
+                        day: []
+                    },
+                    d10: {
+                        day: []
+                    },
+                    d11: {
+                        day: []
+                    },
+                    d12: {
+                        day: []
+                    },
+                    d13: {
+                        day: []
+                    },
+                    d14: {
+                        day: []
+                    },
+                    d15: {
+                        day: []
+                    },
+                    d16: {
+                        day: []
+                    },
+                    d17: {
+                        day: []
+                    },
+                    d18: {
+                        day: []
+                    },
+                    d19: {
+                        day: []
+                    },
+                    d20: {
+                        day: []
+                    },
+                    d21: {
+                        day: []
+                    },
+                    d22: {
+                        day: []
+                    },
+                    d23: {
+                        day: []
+                    },
+                    d24: {
+                        day: []
+                    },
+                    d25: {
+                        day: []
+                    },
+                    d26: {
+                        day: []
+                    },
+                    d27: {
+                        day: []
+                    },
+                    d28: {
+                        day: []
+                    },
+                    d29: {
+                        day: []
+                    },
+                    d30: {
+                        day: []
+                    },
+                    d31: {
+                        day: []
+                    }
+                },
+            }
+        });
 
         return res.status(201).json({ message: "User created", user: user });
     } catch (err) {
@@ -59,7 +1203,7 @@ export const login = async function(req, res){
                 const token = jwt.sign({
                     userId: user._id,
                     email: user.email,
-                }, ENV.JWT_SECRET, {expiresIn: "1h"});
+                }, ENV.JWT_SECRET, {expiresIn: "5d"});
                 return res.status(200).send(token);
             }
             else{

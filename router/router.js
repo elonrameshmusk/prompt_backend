@@ -23,6 +23,9 @@ router.route('/resetPassword').put(auth_controller.verifyUser, auth_controller.r
 //post routes
 router.route('/createPrompt').post(auth_controller.authorize, prompts_controller.createPrompt);
 //get routes
+router.route('/getPrompt').get(auth_controller.authorize, prompts_controller.getPrompt);
 //put routes
+router.route('/putPrompt').put(auth_controller.authorize, prompts_controller.putPrompt);
 //delete routes
+router.route('/deletePrompt').delete(auth_controller.authorize, prompts_controller.deletePrompt);
 export default router;

@@ -33,7 +33,7 @@ export const register = async function(req, res){
         return res.status(500).json({ message: "Something went wrong" });
     } 
 }
-export const authorize = async function(req, res){
+export const authorize = async function(req, res, next){
     try{
         const token = req.headers.authorization.split(" ")[1];
         const decoded = jwt.verify(token, ENV.JWT_SECRET);
@@ -43,7 +43,6 @@ export const authorize = async function(req, res){
     catch(err){
         return res.status(401).send("You are not authorized to access this page");
     }    
-
 }
 export const login = async function(req, res){
     try{
@@ -60,7 +59,7 @@ export const login = async function(req, res){
                 const token = jwt.sign({
                     userId: user._id,
                     email: user.email,
-                }, ENV.JWT_SECRET, {expiresIn: "10m"});
+                }, ENV.JWT_SECRET, {expiresIn: "1h"});
                 return res.status(200).send(token);
             }
             else{

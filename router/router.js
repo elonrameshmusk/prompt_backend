@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as auth_controller from '../controllers/auth_controller.js';
-import * as days_controller from '../controllers/days_controller.js';
+import * as prompts_controller from '../controllers/prompts_controller.js';
 // import registerMail from '../controllers/mailer.js'
 const router = Router();
 import { localVariables } from "../middlewares/verify_token.js";
@@ -19,14 +19,10 @@ router.route('/createResetSession').get(auth_controller.createResetSession);
 //put routes
 router.route('/updateUser').put(auth_controller.updateUser); 
 router.route('/resetPassword').put(auth_controller.verifyUser, auth_controller.resetPassword);
-//DAY ROUTES
+//PROMPT ROUTES
 //post routes
-
+router.route('/createPrompt').post(auth_controller.authorize, prompts_controller.createPrompt);
 //get routes
-router.route('/getAllDays').get(days_controller.decodeToken, days_controller.getAllDays);
 //put routes
-router.route('/putDay').put(days_controller.decodeToken, days_controller.putDay);
-// router.route('/updateDay').put(days_controller.decodeToken, days_controller.updateDay);
 //delete routes
-router.route('/deleteDay').delete(days_controller.decodeToken, days_controller.deleteDay);
 export default router;

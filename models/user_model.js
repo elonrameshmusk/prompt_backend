@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import daySchema from './day_schema.js';
+import monthSchema from './month_schema.js';
 const userSchema = mongoose.Schema({
     email: {
         type: String,
@@ -11,7 +11,10 @@ const userSchema = mongoose.Schema({
         required: true,
         unique: false
     },
-    days:[daySchema]
+    months: {
+        type: [monthSchema],
+        required: true
+    }
 });
 const User = mongoose.model('User', userSchema);
 export default User;
